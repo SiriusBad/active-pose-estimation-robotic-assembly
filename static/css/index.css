@@ -749,27 +749,26 @@ a:focus {
   }
 }
 
-/* === YouTube embed: make it bigger (override template) === */
-section.hero.is-light .video-wrap{
-  width: min(100%, 1800px) !important;  /* 想更大就 2000px */
-  margin: 0 auto !important;
-  aspect-ratio: 16 / 9 !important;
-  background: #000;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+/* =========================
+   Video section: big, but with more side whitespace
+   ========================= */
+
+/* 让该 section 两侧留白更充裕（且随屏幕自适应） */
+.video-container.container.is-fluid{
+  padding-left: clamp(24px, 6vw, 120px);
+  padding-right: clamp(24px, 6vw, 120px);
 }
 
-section.hero.is-light .video-wrap > iframe{
-  width: 100% !important;
-  height: 100% !important;
+/* 控制视频最大宽度 + 居中（第一次方法的核心） */
+.video-embed{
+  width: min(100%, 1600px);  /* 觉得还大：1400px；还小：1800px */
+  margin: 0 auto;
+}
+
+/* 小保险：避免 iframe inline 带来的缝隙 */
+.video-embed iframe{
   display: block;
-  border: 0;
 }
 
-/* 防止被模板把 iframe 强行缩成小块 */
-iframe{
-  max-width: 100% !important;
-}
 
 
