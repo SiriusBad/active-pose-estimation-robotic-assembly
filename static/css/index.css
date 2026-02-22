@@ -749,5 +749,27 @@ a:focus {
   }
 }
 
+/* === YouTube embed: make it bigger (override template) === */
+section.hero.is-light .video-wrap{
+  width: min(100%, 1800px) !important;  /* 想更大就 2000px */
+  margin: 0 auto !important;
+  aspect-ratio: 16 / 9 !important;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+section.hero.is-light .video-wrap > iframe{
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  border: 0;
+}
+
+/* 防止被模板把 iframe 强行缩成小块 */
+iframe{
+  max-width: 100% !important;
+}
 
 
